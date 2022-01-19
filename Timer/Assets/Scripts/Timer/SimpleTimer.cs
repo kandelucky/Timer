@@ -73,7 +73,7 @@ namespace Timer
         {
             timer.TimerTime -= Time.deltaTime;
 
-            if (lapCounterIsOn) intervalCounter += Time.deltaTime;
+            intervalCounter += Time.deltaTime;
             if (intervalCounter >= timer.Interval)
             {
                 if (lapCounterIsOn) timer.LapDuration += intervalCounter;
@@ -84,10 +84,7 @@ namespace Timer
         }
         private void TimerEnd()
         {
-            if (timer.TimerWillReseted)
-            {
-                ResetAllTimer();
-            }
+            if (timer.TimerWillReseted) ResetAllTimer();
             else
             {
                 timer.EndTimer();
@@ -100,7 +97,6 @@ namespace Timer
                 else
                 {
                     if (timerIsOutSound != null) timerIsOutSound.Play();
-                    if (lapCounterIsOn) OnOffLapCounter();
                     TimerIsEndEvent.Invoke(); // UI event
                 }
             }
@@ -121,6 +117,7 @@ namespace Timer
                     if (lapCounterIsOn) lapController.ResumeLap();
                 }
                 timerIsPaused = false;
+                if (timerIsOutSound.isPlaying) timerIsOutSound.Stop();
                 TimerIsStartEvent.Invoke();
             }
             else return;
