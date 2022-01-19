@@ -1,7 +1,7 @@
 # Timer
 The simple timer project
 
-Features:
+Importaint - Project was Created for Android
 
 Timer
 
@@ -16,6 +16,6 @@ Reset button (resets all timer)
 
 Repeat toggle (if ON - timer will repeating)
 
-Lap toggle (if ON - timer will check elapsed time) Do as many times as you want
+Lap toggle (if ON - timer will check elapsed time) Do as many times as you want.
 
 Lap panel //swipe right// (show lap durations)
